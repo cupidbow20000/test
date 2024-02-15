@@ -1,0 +1,7 @@
+import{ar as _,_ as h,as as t}from"./assets/index-BDcs8OaA.js";(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{},a=new Error().stack;a&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[a]="c31e6491-b27e-4c54-9a76-32132e7b9910",e._sentryDebugIdIdentifier="sentry-dbid-c31e6491-b27e-4c54-9a76-32132e7b9910")}catch{}})();const l=e=>{switch(e){case t.BRAVE:case t.METAMASK:case t.OKX_MOBILE:return window.ethereum;case t.COINBASE_WEB:return window.coinbaseWalletExtension;case t.TRUSTWALLET_WEB:return window.trustwallet}},b=({addChain:e,config:{covalentApiKey:a,ethplorerApiKey:i,thorswapApiKey:w}})=>async(y,n=t.METAMASK)=>{_({apiKey:w});const p=y.map(async r=>{const{BrowserProvider:u,getWeb3WalletMethods:A,getProvider:g}=await h(()=>import("./assets/index-BDcs8OaA.js").then(o=>o.fi),__vite__mapDeps([0,1])),c=new u(l(n),"any");await c.send("eth_requestAccounts",[]);const s=await(await c.getSigner()).getAddress(),d=await A({chain:r,ethplorerApiKey:i,covalentApiKey:a,ethereumWindowProvider:l(n)});e({chain:r,walletMethods:{...d,getAddress:()=>s,getBalance:async(o=!0)=>d.getBalance(s,o,g(r))},wallet:{address:s,balance:[],walletType:n}})});await Promise.all(p)},f={connectMethodName:"connectEVMWallet",connect:b};export{f as evmWallet};
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = ["assets/index-BDcs8OaA.js","assets/index-PWKo4Vxk.css"]
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}

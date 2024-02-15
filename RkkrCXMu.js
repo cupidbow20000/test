@@ -1,0 +1,7 @@
+import{ar as I,aH as K,_ as A,au as D,ao as l,as as C}from"./assets/index-BDcs8OaA.js";(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{},t=new Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="39dffa06-c37a-45c3-99f5-8f092bc8378a",e._sentryDebugIdIdentifier="sentry-dbid-39dffa06-c37a-45c3-99f5-8f092bc8378a")}catch{}})();const E=({addChain:e,config:{thorswapApiKey:t},rpcUrls:i})=>async a=>{I({apiKey:t});const n=window.keplr,d=K[a];n?.enable(d);const s=n?.getOfflineSignerOnlyAmino(d);if(!s)throw new Error("Could not load offlineSigner");const{getDenom:c,createSigningStargateClient:f,KujiraToolbox:u,GaiaToolbox:g}=await A(()=>import("./9Kp3GYpY.js").then(o=>o.s),__vite__mapDeps([0,1,2])),w=await f(i[a]||D.Cosmos,s),[{address:r}]=await s.getAccounts(),y=async({assetValue:o,recipient:p,memo:b})=>{const _=[{denom:a===l.Cosmos?"uatom":c(o.symbol),amount:o.getBaseValue("string")}],{transactionHash:h}=await w.sendTokens(r,p,_,1.6,b);return h},m=a===l.Kujira?u():g();e({chain:a,walletMethods:{...m,transfer:y,getAddress:()=>r},wallet:{address:r,balance:[],walletType:C.KEPLR}})},k={connectMethodName:"connectKeplr",connect:E};export{k as keplrWallet};
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = ["9Kp3GYpY.js","assets/index-BDcs8OaA.js","assets/index-PWKo4Vxk.css"]
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}
